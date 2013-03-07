@@ -1,4 +1,5 @@
-aur.so
-======
+# aur.so(1)
 
-A Bash script to install packages from the Arch User Repository
+## USAGE
+
+    curl aur.so | bash -s packer
