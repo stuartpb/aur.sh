@@ -1,5 +1,7 @@
 # aur.so(1)
 
 ## USAGE
+    # Ensure package databases are up to date for dependencies
+    sudo pacman -Sy
 
-    curl aur.so | bash -s packer
+    bash <(curl aur.so) packer
