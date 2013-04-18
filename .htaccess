@@ -7,10 +7,8 @@ AddOutputFilter INCLUDES .html
 
 # Direct browser requests to the root to the index page
 RewriteEngine on
-RewriteCond  %{HTTP_USER_AGENT}  ^Mozilla/ [OR]
-RewriteCond  %{HTTP_USER_AGENT}  ^Opera/ [OR]
-RewriteCond  %{HTTP_USER_AGENT}  ^Lynx/
-RewriteRule  ^/$                 /index.html
+RewriteCond %{HTTP_USER_AGENT} ^(Mozilla|Opera|Lynx)/
+RewriteRule ^/$                /index.html
 
 # Direct all other UAs to the script
-RewriteRule  ^/$                 /aur.sh
+RewriteRule ^/$                /aur.sh
