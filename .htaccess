@@ -1,1 +1,16 @@
-DirectoryIndex aur.sh
+# Handle CGI scripts for index.html's output
+AddHandler cgi-script .cgi
+
+# Parse SSI in HTML files
+Options +Includes
+AddOutputFilter INCLUDES .html
+
+# Direct browser requests to the root to the index page
+RewriteEngine on
+RewriteCond  %{HTTP_USER_AGENT}  ^Mozilla/ [OR]
+RewriteCond  %{HTTP_USER_AGENT}  ^Opera/ [OR]
+RewriteCond  %{HTTP_USER_AGENT}  ^Lynx/
+RewriteRule  ^/$                 /index.html
+
+# Direct all other UAs to the script
+RewriteRule  ^/$                 /aur.sh

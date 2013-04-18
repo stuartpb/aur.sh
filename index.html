@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>aur.so(1)</title>
+  <style>
+    body{
+      font-family: monospace;
+    }
+    .banner {
+      font-family: sans-serif;
+      background-color: #dc8;
+    }
+  </style>
+</head>
+<body>
+  <pre>
+  <!--#include virtual="aursh.cgi" -->
+  </pre>
+  <div class="banner">
+    This page is presented because you are requesting the site root with a
+    User-Agent that is recognized to be a browser (<code>Mozilla</code>,
+    <code>Opera</code>, or <code>Lynx</code>).
+    When user-agents other than these, such as curl or wget, request
+    http://aur.so/, they recieve only the source code included above.
+    You can get the source for aur.sh in your browser by navigating to
+    <a href="//aur.sh/aur.sh">aur.sh/aur.sh</a>, or this page in a non-browser
+    at <a href="//aur.sh/index.html">aur.sh/index.html</a>.
+  </div>
+  <div id="readme">
+    <!--#include virtual="README.cgi" -->
+  </div>
+</body>
+</html>
+
