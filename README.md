@@ -1,6 +1,6 @@
 # aur.sh(1)
 
-make packages from the Arch User Repository on Arch Linux
+make packages from the [Arch User Repository](https://aur.archlinux.org/)
 
 ## USAGE
 
