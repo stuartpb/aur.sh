@@ -2,30 +2,93 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>aur.so(1)</title>
+  <title>aur.sh(1)</title>
   <style>
-    body{
-      font-family: monospace;
+    body {
+      background: white;
+      font-family: sans-serif;
     }
+
     .banner {
       font-family: sans-serif;
-      background-color: #dc8;
+      font-size: .75em;
+      padding: 1em;
+      background-color: #da6;
     }
+    
+    h1, h2, h3, h4, h5, h6 {
+      color: #527bbd;
+      font-family: sans-serif;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      line-height: 1.3;
+    }
+    
+    #readme p {
+      margin-left: 5%;
+    }
+    
+    pre {
+      padding: 1em;
+      background-color: #ddd;
+    }
+    
+    #sh {
+       position:relative;
+       font-size: 1.5em;
+       color:#000;
+       background:#f8f8f8;
+       margin-top: 0.5em;
+       margin-bottom: 1em;
+       margin-right: 32px;
+       box-shadow:-2px 2px 2px rgba(0,0,0,0.15)
+    }
+
+    #sh:before {
+       content:"";
+       position:absolute;
+       top:0;
+       right:-32px;
+       border-width:0 32px 32px 0;
+       border-style:solid;
+       border-color:transparent transparent #f4f4f4 #f4f4f4;
+       box-shadow:-2px 2px 2px rgba(0,0,0,0.15), -2px 2px 2px rgba(0,0,0,0.1);
+       z-index: 1;
+       display:block; width:0; /* Firefox 3.0 damage limitation */
+    }
+    #sh:after {
+       content:"";
+       position:absolute;
+       top:32px;
+       bottom:0;
+       right:-32px;
+       width: 32px;
+       background: #f8f8f8;
+       box-shadow:-2px 2px 2px rgba(0,0,0,0.15);
+       z-index: -1;
+       display:block; /* Firefox 3.0 damage limitation */
+    }
+    
   </style>
 </head>
 <body>
-  <pre><!--#include virtual="aursh.cgi" --></pre>
+  <pre id="sh"><!--#include virtual="aursh.cgi" --></pre>
   <div class="banner">
-    This page is presented because you are requesting the site root with a
+    The following is included because you are requesting the site root with a
     User-Agent that is recognized to be a browser (<code>Mozilla</code>,
     <code>Opera</code>, or <code>Lynx</code>).
-    When user-agents other than these, such as curl or wget, request
-    http://aur.so/, they recieve only the source code included above.
-    You can get the source for aur.sh in your browser by navigating to
-    <a href="//aur.sh/aur.sh">aur.sh/aur.sh</a>, or this page in a non-browser
-    at <a href="//aur.sh/index.html">aur.sh/index.html</a>.
+    When user-agents other than these (such as <code>curl</code> or
+    <code>wget</code>) request http://aur.sh/, the response will include only
+    the content of the script above. You can get the bare code for aur.sh in
+    your browser by navigating to <a href="//aur.sh/aur.sh">aur.sh/aur.sh</a>,
+    or this page in a non-browser by requesting
+    <a href="//aur.sh/index.html">aur.sh/index.html</a>.
   </div>
-  <div id="readme"><!--#include virtual="README.cgi" --></div>
+  <div id="readme"><!--#include virtual="README.cgi" -->
+    <h2>GITHUB</h2>
+    <p>Submit pull requests and report issues at
+    <a href="https://github.com/stuartpb/aur.sh">https://github.com/stuartpb/aur.sh</a>.</p>
+  </div>
 </body>
 </html>
 
