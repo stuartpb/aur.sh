@@ -1,8 +1,9 @@
 #!/bin/sh
-for p
+d=${BUILDDIR:-$PWD}
+for p in ${@##-*}
 do
-cd `mktemp -d`
+cd $d
 curl https://aur.archlinux.org/packages/${p:0:2}/$p/$p.tar.gz |tar xz
 cd $p
-makepkg -si
+makepkg ${@##[^\-]*}
 done
