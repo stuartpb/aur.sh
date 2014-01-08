@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 d=${BUILDDIR:-$PWD}
 for p in ${@##-*}
 do
