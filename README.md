@@ -14,24 +14,32 @@ value.
 If you do not want packages to download to your current directory,
 you can source `/etc/makepkg.conf` to set any configured `BUILDDIR`:
 
-    source /etc/makepkg.conf
+    $ source /etc/makepkg.conf
 
 and/or change to a temporary directory first:
 
-    cd `mktemp -d`
-    
+    $ cd `mktemp -d`
+
+### Prerequisites
+
+Before installing any packages, you should always ensure that your installation
+is up to date:
+
+    # pacman -Syu
+
+Also, to build packages from the AUR, you are expected to have the `base-devel`
+package installed. If you aren't sure that you've done so already:
+
+    # pacman -S --needed base-devel
+
 ### Installing packages from the AUR
 
-To install every package and its main repo dependencies, first ensure that
-the main repo package databases are up to date:
+To install any number of AUR packages and their main repo dependencies, run
+aur.sh (the site root can be directed straight to bash via curl) with the `-s`
+(install package dependencies) and `-i` (install package after building)
+options for makepkg:
 
-    sudo pacman -Sy
-
-Then, run aur.sh (the site root can be directed straight to bash via curl)
-with the `-s` (install package dependencies) and `-i` (install package after
-building) options for makepkg:
-
-    bash <(curl aur.sh) -si [package ...]
+    $ bash <(curl aur.sh) -si [package ...]
 
 ## ADVANCED TRICKS
 
@@ -42,7 +50,7 @@ results of a query of non-repo package names to aur.sh, which will then
 redownload them, build them, and install any builds newer than what you
 currently have:
 
-    pacman -Qqm | xargs bash <(curl aur.sh) -si --needed
+    $ pacman -Qqm | xargs bash <(curl aur.sh) -si --needed
 
 ## CAVEATS
 
@@ -52,4 +60,4 @@ have installed before you try to install their dependants. For example, the
 `yaourt` package in the AUR depends on the AUR package `package-query`, so to
 install `yaourt` with aur.sh, you need to specify `package-query` first:
 
-    bash <(curl aur.sh) -si package-query yaourt
+    $ bash <(curl aur.sh) -si package-query yaourt
