@@ -51,6 +51,17 @@ redownload them, build them, and install any builds newer than what you
 currently have:
 
     $ pacman -Qqm | xargs bash <(curl aur.sh) -si --needed
+    
+### Get from mirror
+
+http://aur.sh also provides an [alternate version][] of aur.sh that, instead of
+getting package files from the AUR using `curl` and `tar`, gets the files from
+the pkgbuild.com AUR mirror using `wget`. If, for some reason, you can't
+retrieve files from the main Arch User Repository, you can try:
+
+    $ bash <(curl aur.sh/alt-aur.sh) -si [package ...]
+
+[alternate version]: http://aur.sh/alt-aur.sh
 
 ## CAVEATS
 
